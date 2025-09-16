@@ -1,0 +1,19 @@
+version: '3.9'
+
+services: 
+  mysql:
+    image: mysql
+    container_name: mysql_server
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: mysqlpwd
+      MYSQL_DATABASE: testdb
+      MYSQL_USER: stas_adm
+      MYSQL_PASSWORD: 12345
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
